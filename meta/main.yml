@@ -1,6 +1,6 @@
 galaxy_info:
   author: w.luis.araujo
-  description: "Install Roundcubemail"
+  description: "Install Roundcubemail (WebMail)"
   company: Personal
   license: "(GPLv3)"
   min_ansible_version: 1.5
