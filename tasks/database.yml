@@ -1,0 +1,37 @@
+---
+# tasks file for iac-ansible-roundcubemail
+- name: Criando banco de dados
+  when: roundcube_installed|success
+  mysql_db: 
+  name: "{{ roundcubemail_db }}" 
+  state: present
+  register: dbcreate
+
+-  mysql_db:
+        when: dbcreate|success
+        state: import
+        name: "{{ roundcubemail_db }}" 
+        target: /tmp/{{ inventory_hostname }}.sql
+        register: tablecreate
+
+-  mysql_user:
+        when: tablecreate|success
+        name: "{{ roundcube_dbuser }}"
+        password: "{{ roundcube_dbpassword | mandatory }}"
+        priv: '{{ roundcubemail_db }}.*:ALL,GRANT'
+        state: present
+        register: usercreate
+... 
+################################################################################
+#- name: Copia script SQL
+#  copy: src=mysql_createdb.sql dest=/tmp/mysql_createdb.sql owner=root group=root mode=0644
+#  register: script_installed
+  
+#- name: Criando DataBase
+#  when: script_installed|success
+#  shell: 'mysql -u root -p123456 roundcubemail  < /tmp/mysql_createdb.sql'
+#  register: dbcreate
+
+#- name: Importando Tabelas
+#  shell: 'mysql -u root -p123456 roundcubemail  < /usr/share/roundcubemail/SQL/mysql.initial.sql'
+#  when: dbcreate|success

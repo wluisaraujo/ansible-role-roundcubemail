@@ -1,2 +1,5 @@
 ---
-# vars file for roundcubemail
+# tasks file for iac-ansible-roundcubemail
+roundcubemail_db: roundcubemail
+roundcube_dbuser: roundcube
+roundcube_dbpassword: 4linux

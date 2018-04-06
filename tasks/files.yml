@@ -1,0 +1,25 @@
+---
+# tasks file for iac-ansible-roundcubemail
+- name: Configura VirtualHost /etc/httpd/conf.d/roundcubemail.conf
+  copy: 
+  src=roundcubemail.conf 
+  dest=/etc/httpd/conf.d/roundcubemail.conf 
+  owner=root 
+  group=root 
+  mode=0644
+  
+- name: Arquivos de config /etc/roundcube/*
+  copy: 
+  src=roundcubemail
+  dest=/etc/roundcubemail
+  remote_sync=yes
+  directory_mode=yes
+
+- name: Arquivos de config /etc/php.ini*
+  copy: 
+  src=php.ini
+  dest=/etc/php.ini
+  owner=root 
+  group=root 
+  mode=0644
+...
