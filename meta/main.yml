@@ -11,5 +11,8 @@ galaxy_info:
   - name: Debian
     versions:
     - all
-  galaxy_tags: [roundcube,roundcubemail,webmail]
+  galaxy_tags: 
+    - roundcube 
+    - roundcubemail
+    - webmail
 dependencies: []
