@@ -17,11 +17,14 @@
     - php-dom
     - php-mysql
   when: (ansible_os_family == "Debian")
+  register: result
   
 - name: Instalando Roundcubemail
   apt: 
     name: roundcubemail 
     update_cache: yes 
     state: latest
-  when: (ansible_os_family == "Debian")  
+  when: 
+    - ansible_os_family == "Debian"
+    - result is success
 ...
