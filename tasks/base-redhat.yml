@@ -1,36 +1,44 @@
 ---
 # tasks file for iac-ansible-roundcubemail
 - yum:
-  register: epel_installed
-  name: http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
-  state: latest
-
-- yum: name={{item}} state=latest
-  when: epel_installed|success
-  register: dep_installed
+    name: http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
+    state: latest
+    register: result_epel
+  when: (ansible_os_family == "RedHat")
+  
+- yum: 
+    name: "{{ item }}"
+    state: latest
   with_items:
-          - httpd
-          - php
-          - mod_ssl
-          - mailcap
-          - php-gd 
-          - php-intl 
-          - php-ldap
-          - php-mbstring 
-          - php-pdo
-          - php-pear-Auth-SASL 
-          - php-pear-Net-Sieve
-          - php-pear
-          - php-pear-Net-SMTP
-          - php-pear-Net-Socket
-          - php-pear-Mail-Mime
-          - php-pear-Net-IDNA2
-          - php-pear-Net-LDAP2
-          - php-pspell
-          - php-xml
+    - httpd
+    - php
+    - mod_ssl
+    - mailcap
+    - php-gd 
+    - php-intl 
+    - php-ldap
+    - php-mbstring 
+    - php-pdo
+    - php-pear-Auth-SASL 
+    - php-pear-Net-Sieve
+    - php-pear
+    - php-pear-Net-SMTP
+    - php-pear-Net-Socket
+    - php-pear-Mail-Mime
+    - php-pear-Net-IDNA2
+    - php-pear-Net-LDAP2
+    - php-pspell
+    - php-xml
+  register: result_dep  
+  when: 
+    - ansible_os_family == "RedHat"
+    - result_epel is success
 
-- yum: name=roundcubemail state=latest 
-  when: dep_installed|success
+- yum: 
+    name: roundcubemail 
+    state: latest 
   register: roundcube_installed
-...
-
+  when: 
+    - ansible_os_family == "RedHat"
+    - result_dep is success
+  ...
