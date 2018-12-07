@@ -4,14 +4,14 @@
     name: "{{ item }}" 
     update_cache: yes 
     state: present
-  with_items: 
+  loop: 
     - apache2
 #    - composer
 #    - python-mysqldb
 #    - file
 #    - wget
 #    - php-zip
-#    - git
+    - git
 #    - php-mbstring
 #    - php-gd
 #    - php-dom
