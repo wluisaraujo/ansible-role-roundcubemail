@@ -1,7 +1,9 @@
 ---
 # tasks file for iac-ansible-roundcubemail
-- name: Instalar Dependencias
-  apt: name={{ item }} update_cache=yes state=present
+- apt: 
+    name: "{{ item }}" 
+    update_cache: yes 
+    state: present
   with_items: 
     - apache2
     - composer
@@ -14,7 +16,12 @@
     - php-gd
     - php-dom
     - php-mysql
-
+  when: (ansible_os_family == "Debian")
+  
 - name: Instalando Roundcubemail
-  apt: name=roundcubemail update_cache=yes state=latest
+  apt: 
+    name: roundcubemail 
+    update_cache: yes 
+    state: latest
+  when: (ansible_os_family == "Debian")  
 ...
