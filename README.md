@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/wluisaraujo/iac-ansible-roundcubemail.svg?branch=master)](https://travis-ci.org/wluisaraujo/iac-ansible-roundcubemail)
+[![Ansible Galaxy](https://img.shields.io/badge/Ansible%20Galaxy-RoundCube%20WebMail-blue.svg)](https://galaxy.ansible.com/wluisaraujo/iac-ansible-roundcubemail) [![Build Status](https://travis-ci.org/wluisaraujo/iac-ansible-roundcubemail.svg?branch=master)](https://travis-ci.org/wluisaraujo/iac-ansible-roundcubemail)
 ---
 # IaC: with [Ansible](https://www.ansible.com) role to install and configure [Roundcube](https://roundcube.net/)
 ------------
