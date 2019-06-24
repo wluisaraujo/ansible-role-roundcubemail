@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: iac-ansible-roundcubemail
   author: w.luis.araujo
   description: "Install Roundcubemail (WebMail)"
   company: LUSAR | wluisaraujo.github.io
