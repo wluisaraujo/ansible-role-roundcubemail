@@ -55,7 +55,7 @@ install:
 
 
  # Install ansible role
- - ansible-galaxy install wluisaraujo.iac-ansible-roundcubemail
+ - ansible-galaxy install wluisaraujo.roundcubemail
 
 script:
  # Basic role syntax check
