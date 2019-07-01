@@ -1,5 +1,5 @@
 ---
-# tasks file for iac-ansible-roundcubemail
+# tasks file for roundcubemail
 - apt: 
     name: "{{ item }}" 
     update_cache: yes 

@@ -1,5 +1,5 @@
 ---
-# tasks file for iac-ansible-roundcubemail
+# tasks file for roundcubemail
 - name: Configura VirtualHost /etc/httpd/conf.d/roundcubemail.conf
   copy: 
   src=roundcubemail.conf 

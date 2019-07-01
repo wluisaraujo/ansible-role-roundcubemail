@@ -1,5 +1,5 @@
 ---
-# tasks file for iac-ansible-roundcubemail
+# tasks file for roundcubemail
 roundcubemail_db: roundcubemail
 roundcube_dbuser: roundcube
 roundcube_dbpassword: 4linux
