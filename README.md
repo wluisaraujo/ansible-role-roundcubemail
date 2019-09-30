@@ -13,6 +13,15 @@ Requirements
 
  *
 
+
+Installation
+------------
+
+```console
+vagrant@localhost:~$ ansible-galaxy install wluisaraujo.roundcubemail
+vagrant@localhost:~$ ansible-galaxy install -r wluisaraujo.roundcubemail/requirements.txt
+```
+
 Role Variables
 --------------
 
